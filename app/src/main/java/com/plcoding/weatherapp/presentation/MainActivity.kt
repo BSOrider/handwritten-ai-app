@@ -43,10 +43,11 @@ class MainActivity : ComponentActivity() {
                             .fillMaxSize()
                             .background(DarkBlue)
                     ) {
-                        WeatherCard(
-                            state = viewModel.state,
-                            backgroundColor = DeepBlue
-                        )
+//                        WeatherCard(
+//                            state = viewModel.state,
+//                            backgroundColor = DeepBlue
+//                        )
+                        DrawingView()
                     }
                     if(viewModel.state.isLoading) {
                         CircularProgressIndicator(
