@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.plcoding.weatherapp.presentation.ui.theme.DarkBlue
 import com.plcoding.weatherapp.presentation.ui.theme.DeepBlue
 import com.plcoding.weatherapp.presentation.ui.theme.WeatherAppTheme
@@ -34,10 +33,6 @@ class MainActivity : ComponentActivity() {
         ) {
             viewModel.loadWeatherInfo()
         }
-        permissionLauncher.launch(arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-        ))
         setContent {
             WeatherAppTheme {
                 Box(
@@ -52,8 +47,6 @@ class MainActivity : ComponentActivity() {
                             state = viewModel.state,
                             backgroundColor = DeepBlue
                         )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        WeatherForecast(state = viewModel.state)
                     }
                     if(viewModel.state.isLoading) {
                         CircularProgressIndicator(
